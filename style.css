@@ -1,0 +1,78 @@
+/* Segue support site. Light and dark, same amber accent as the app. */
+:root {
+  --bg: #fbfaf7;
+  --text: #1c1b19;
+  --muted: #5f5b54;
+  --line: #e4e0d8;
+  --card: #f3f0e9;
+  --accent: #a86f00;          /* amber, darkened for contrast on light */
+  --accent-soft: #fff4d6;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0e10;
+    --text: #f2f0ec;
+    --muted: #a9a49b;
+    --line: #2c2b29;
+    --card: #1a1917;
+    --accent: #ffb000;
+    --accent-soft: #2a2110;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e0e10; --text: #f2f0ec; --muted: #a9a49b; --line: #2c2b29;
+  --card: #1a1917; --accent: #ffb000; --accent-soft: #2a2110; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+
+header.site, main, footer.site { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+header.site {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-top: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--text); text-decoration: none; }
+.brand img { border-radius: 9px; }
+nav { display: flex; gap: 18px; }
+nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+nav a[aria-current="page"] { color: var(--text); }
+
+main { padding-top: 8px; padding-bottom: 48px; }
+h1 { font-size: 34px; line-height: 1.2; margin: 28px 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 22px; margin: 36px 0 10px; }
+.meta { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
+.lead { font-size: 19px; }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+.email { overflow-wrap: anywhere; }
+
+.contact {
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  padding: 14px 16px; border-radius: 8px; margin: 20px 0;
+}
+
+details {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 0 16px; margin: 10px 0;
+}
+summary {
+  cursor: pointer; font-weight: 600; padding: 14px 0; list-style-position: inside;
+}
+details[open] { padding-bottom: 6px; }
+details > :not(summary) { margin-top: 0; }
+
+footer.site {
+  border-top: 1px solid var(--line); padding-top: 18px; padding-bottom: 40px;
+  color: var(--muted); font-size: 14px;
+}
